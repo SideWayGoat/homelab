@@ -1,0 +1,16 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+
+    ports:
+      - "8096:8096"
+
+    volumes:
+      - /srv/data/jellyfin:/config
+      - /srv/data/media:/media
+
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128
+
+    restart: unless-stopped
